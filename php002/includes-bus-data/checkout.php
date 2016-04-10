@@ -1,4 +1,7 @@
 <?php
+
+echo $var1;
+
 $has_errors = false;
 
 if (empty($_POST['bus']['driver'])) {

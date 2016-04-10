@@ -4,7 +4,7 @@ function load_employees($filename = 'employees') {
     $file = fopen("data/{$filename}", 'r');
     $employees = [];
     while (!feof($file)) {
-        list($name, $birth, $phone, $post) = explode(' | ', fgets($file));
+        list($name, $birth, $phone, $post) = explode(' | ', str_replace("\r\n", '', fgets($file)));
         if (!feof($file)) {
             $employees[] = [
                 'name' => $name,
@@ -24,7 +24,7 @@ function save_employees($employees, $filename = 'employees') {
     $file = fopen("data/{$filename}", 'w');
 
     foreach ($employees as $employee) {
-        fwrite($file, "{$employee['name']} | {$employee['birth']} | {$employee['phone']} | {$employee['post']}");
+        fwrite($file, "{$employee['name']} | {$employee['birth']} | {$employee['phone']} | {$employee['post']}\r\n");
     }
 
     fclose($file);
@@ -82,13 +82,13 @@ function checkout_employee($employee) {
 
     if (empty($employee['birth'])) {
         $errors['birth'] = 'Введите дату рождения';
-    } else if (!preg_match('/^\d\d\.\d\d.\d\d\d\d$/', $_POST['employee']['birth'])) {
+    } else if (!preg_match('/^\d\d\.\d\d.\d\d\d\d$/', $employee['birth'])) {
         $errors['birth'] = 'Некорректная дата рождения';
     }
 
     if (empty($employee['phone'])) {
         $errors['phone'] = 'Введите телефон сотрудника';
-    } else if (!preg_match('/^[+\d ()-]+$/', $_POST['employee']['phone'])) {
+    } else if (!preg_match('/^[+\d ()-]+$/', $employee['phone'])) {
         $errors['phone'] = 'Некорректный телефон';
     }
 

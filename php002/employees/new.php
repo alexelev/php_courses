@@ -10,6 +10,7 @@
 
         if (!$has_errors) {
             header('Location: index.php');
+            exit;
         }
     }
 ?>

@@ -44,7 +44,7 @@
             <tbody>
             <?php foreach (load_employees() as $index => $employee) { ?>
                 <tr>
-                    <th><?= $index ?></th>
+                    <th><?= $index + 1 ?></th>
                     <td><?= $employee['name'] ?></td>
                     <td><?= $employee['birth'] ?></td>
                     <td><?= $employee['phone'] ?></td>
