@@ -1,0 +1,74 @@
+body {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+header {
+    font-size: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid gray;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 20px;
+}
+
+table thead th {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+table thead th .error {
+    font-size: 14px;
+    color: red;
+}
+
+table tbody th, table tbody td {
+    padding: 10px;
+    vertical-align: middle;
+    border: 1px solid black;
+}
+
+form {
+    width: 400px;
+    margin: 0 auto;
+}
+
+form .field {
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+form .field label {
+    font-weight: bold;
+    font-size: 18px;
+    float: left;
+    width: 150px;
+    line-height: 27px;
+}
+
+form .field input {
+    box-sizing: border-box;
+    font-size: 18px;
+    width: 250px;
+    float: right;
+}
+
+form .field .error {
+    float: right;
+    font-weight: bold;
+    color: red;
+    margin-top: 10px;
+}
+
+form .actions {
+    margin-top: 20px;
+}
+
+form .actions button {
+    font-size: 18px;
+    padding: 5px 10px;
+    margin: 10px;
+}
